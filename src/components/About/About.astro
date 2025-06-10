@@ -1,0 +1,45 @@
+---
+/**
+ * * About section
+ */
+
+import profileImage from "@assets/images/photographer-min.jpg";
+import { Image } from "astro:assets";
+---
+
+<section id="about" class="site-container scroll-mt-10 py-8 md:py-12">
+	<div class="flex flex-col md:flex-row">
+		<div class="md:w-2/3">
+			<h2 class="h3 text-primary-500 text-pretty uppercase">Meet your photographers</h2>
+			<h3 class="h2 mt-4">Gerrit and Vanessa</h3>
+			<div class="bg-base-100 mt-8 p-8 md:mb-20 lg:text-lg">
+				<p>
+					We aspire to capture authentic moments. Moments that are something to behold aesthetically, and speak of something deeper, the underlying emotions and unfolding story.
+				</p>
+				<p>
+					We are a husband & wife duo and work together as a team, both bringing to the forefront our own personal insights & attention to detail. Working together brings a great benefit allowing us to capture the story of your event in a complete way.
+				</p>
+				<p>
+					Being dancers as well as artists, our photography is inspired to capture movement in a moment, seeking for more than meets the eye.
+				</p>
+				<p>
+					Our style would be best described as art documentary as we are primarily interested in telling the story of the day while capturing its essence, continuously looking for those honest, beautiful moments that could otherwise simply escape in a breath.
+				</p>
+				<div class="flex w-3/4 justify-end">
+					<p class="font-heading-1 text-3xl italic">- Gerrit & Vanessa</p>
+				</div>
+			</div>
+		</div>
+		<div class="mr-auto max-w-md md:w-1/3 md:max-w-none">
+			<div class="my-auto aspect-[3/4] w-full overflow-hidden">
+				<Image
+					src={profileImage}
+					alt="Gerrit and Vanessa Vermeulen"
+					width={450}
+					densities={[1.5, 2]}
+					class="h-auto min-h-full w-full min-w-full object-cover"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
