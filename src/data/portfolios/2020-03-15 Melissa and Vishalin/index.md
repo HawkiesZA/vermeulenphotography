@@ -12,7 +12,7 @@ images:
     [./couple-1.jpg],
     [./couple-2.jpg, ./couple-3.jpg]
   ]
-order: 3
+order: 4
 ---
 
 This Durban wedding was a breathtaking affair. The stunning venue and lovely botanic gardens provided a picturesque backdrop.

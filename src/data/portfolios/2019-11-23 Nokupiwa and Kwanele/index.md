@@ -1,9 +1,9 @@
 ---
 title: Nokupiwa and Kwanele
-description: A picturesque wedding at Talloula in Kloof
+description: A stunning wedding in Newcastle
 heroImage: ./couple-3.jpg
 date: "Nov 23 2019"
-location: Kloof, South Africa
+location: Newcastle, South Africa
 clients: [Nokupiwa, Kwanele]
 images:
   [
@@ -12,7 +12,7 @@ images:
     [./bubbles-1.jpg],
     [./couple-1.jpg, ./couple-2.jpg],
   ]
-order: 1
+order: 2
 ---
 
-This wedding in Kloof was a breathtaking affair. The stunning venue and lovely botanic gardens provided a picturesque backdrop.
+This wedding in Newcastle was a breathtaking affair. The stunning venue and lovely botanic gardens provided a picturesque backdrop.

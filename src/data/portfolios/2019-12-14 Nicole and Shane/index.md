@@ -13,7 +13,7 @@ images:
     [./couple-1.jpg, ./couple-2.jpg],
     [./cake.jpg]
   ]
-order: 2
+order: 3
 ---
 
 This wedding in Kloof was a breathtaking affair. The stunning venue and lovely botanic gardens provided a picturesque backdrop.

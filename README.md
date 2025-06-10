@@ -56,7 +56,8 @@ The source files have the following setup. Note that not all files are listed he
 ├── .gitignore
 ├── .prettierrc.mjs
 ├── astro.config.mjs
-├── netlify.toml
+├── cloudbuild.yaml
+├── Dockerfile
 ├── package.json
 ├── package-lock.json
 ├── README.md
@@ -64,6 +65,28 @@ The source files have the following setup. Note that not all files are listed he
 ```
 
 For robots like Google to see the correct sitemap, you will want to edit the `public/robots.txt` file to use your website domain.
+
+## Adding additional portfolios
+
+To add a new portfolio, you will need to add a new folder to the `src/data/portfolios/` directory. In this folder, you should create an `index.md` file. The file should contain the following frontmatter:
+
+```markdown
+---
+title: "Portfolio Title"
+description: "Portfolio description"
+heroImage: ./couple-3.jpg
+date: "Nov 23 2019"
+location: Location, Country
+clients: [Client 1, Client 2]
+images:
+  [
+    [./image-1.jpg]
+  ]
+order: 1
+---
+```
+
+All images used in the markdown file should be placed in the same folder as the `index.md` file.
 
 ## License
 
@@ -77,7 +100,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory. I also frequently use `src/assets` for images when using Astro asssets for image optimization.
 
-### Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -90,6 +113,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-### Deployment
+## Deployment
 
 This repo has been set up to automatically deploy when you push to the main branch.
