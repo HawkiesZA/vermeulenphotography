@@ -19,5 +19,7 @@ steps:
     - 'us-central1-docker.pkg.dev/vermeulen-photography/vermeulenphotography/website:$COMMIT_SHA'
     - '--region'
     - 'us-central1'
+    - '--project'
+    - 'vermeulen-photography'
 images:
 - 'us-central1-docker.pkg.dev/vermeulen-photography/vermeulenphotography/website:$COMMIT_SHA'
