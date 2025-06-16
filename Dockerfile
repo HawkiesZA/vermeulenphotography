@@ -1,6 +1,10 @@
 FROM node:lts AS runtime
 WORKDIR /app
 
+# Set environment variables
+ENV NODE_ENV=production
+ENV NO_DB=1
+
 COPY . .
 
 RUN npm install

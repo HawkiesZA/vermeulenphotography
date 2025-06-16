@@ -7,7 +7,17 @@ const TO_EMAIL = 'TO_EMAIL'
 const FROM_EMAIL = 'FROM_EMAIL'
 const DB_ID = 'vermeulenphotography'
 
-const datastore = new Datastore({ databaseId: DB_ID, projectId: 'vermeulen-photography',})
+let _datastore = null;
+
+function getDatastore() {
+    if (!_datastore) {
+      _datastore = new Datastore({ 
+        databaseId: DB_ID, 
+        projectId: 'vermeulen-photography'
+      });
+    }
+    return _datastore;
+}
 
 /**
  * @type {Record<string, string>}
@@ -67,8 +77,8 @@ export const getFromEmail = () => {
 
 export const getSettings = async () => {
     if (Object.keys(savedSettings).length === 0) {
-        const query = datastore.createQuery('Settings')
-        const [settings] = await datastore.runQuery(query)
+        const query = getDatastore().createQuery('Settings')
+        const [settings] = await getDatastore().runQuery(query)
         if (settings.length > 0) {
             savedSettings = settings.reduce((obj, item) => (obj[item.key] = item.value, obj), {})
         } else {
