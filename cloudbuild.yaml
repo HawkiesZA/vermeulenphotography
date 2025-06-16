@@ -4,7 +4,12 @@ options:
 steps:
 # Build the image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/vermeulen-photography/vermeulenphotography/website:$COMMIT_SHA', '.']
+  args: [
+    'build', 
+    '--build-arg', 'GCLOUD_PROJECT=vermeulen-photography',
+    '-t', 'us-central1-docker.pkg.dev/vermeulen-photography/vermeulenphotography/website:$COMMIT_SHA', 
+    '.'
+  ]
 # Push the image to Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/vermeulen-photography/vermeulenphotography/website:$COMMIT_SHA']
@@ -19,5 +24,6 @@ steps:
     - 'us-central1-docker.pkg.dev/vermeulen-photography/vermeulenphotography/website:$COMMIT_SHA'
     - '--region'
     - 'us-central1'
+    - '--set-env-vars=GCLOUD_PROJECT=vermeulen-photography'
 images:
 - 'us-central1-docker.pkg.dev/vermeulen-photography/vermeulenphotography/website:$COMMIT_SHA'

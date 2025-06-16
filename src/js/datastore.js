@@ -7,7 +7,7 @@ const TO_EMAIL = 'TO_EMAIL'
 const FROM_EMAIL = 'FROM_EMAIL'
 const DB_ID = 'vermeulenphotography'
 
-const datastore = new Datastore({ databaseId: DB_ID, })
+const datastore = new Datastore({ databaseId: DB_ID, projectId: 'vermeulen-photography',})
 
 /**
  * @type {Record<string, string>}
