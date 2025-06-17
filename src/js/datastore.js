@@ -1,4 +1,4 @@
-import { Datastore } from '@google-cloud/datastore'
+
 export const isDev = import.meta.env.DEV;
 
 const RECAPTCHA_SITE_KEY = 'RECAPTCHA_SITE_KEY'
@@ -9,7 +9,8 @@ const DB_ID = 'vermeulenphotography'
 
 let _datastore = null;
 
-function getDatastore() {
+async function getDatastore() {
+    const { Datastore } = await import('@google-cloud/datastore')
     if (!_datastore) {
       _datastore = new Datastore({ 
         databaseId: DB_ID, 
