@@ -77,14 +77,24 @@ export const getFromEmail = () => {
 }
 
 export const getSettings = async () => {
+    if (process.env.NO_DB) {
+        return {}
+    }
+
     if (Object.keys(savedSettings).length === 0) {
-        const datastore = await getDatastore()
-        const query = datastore.createQuery('Settings')
-        const [settings] = await datastore.runQuery(query)
-        if (settings.length > 0) {
-            savedSettings = settings.reduce((obj, item) => (obj[item.key] = item.value, obj), {})
-        } else {
-            throw new Error('Settings table is empty')
+        try {
+            const datastore = await getDatastore()
+            const query = datastore.createQuery('Settings')
+            const [settings] = await datastore.runQuery(query)
+            if (settings.length > 0) {
+                savedSettings = settings.reduce((obj, item) => (obj[item.key] = item.value, obj), {})
+            } else {
+                console.warn('Settings table is empty, using default settings')
+            }
+        } catch (error) {
+            console.error('Error fetching settings:', error.message)
+            // Return empty settings instead of throwing to prevent build failures
+            return {}
         }
     }
 }
