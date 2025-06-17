@@ -78,8 +78,9 @@ export const getFromEmail = () => {
 
 export const getSettings = async () => {
     if (Object.keys(savedSettings).length === 0) {
-        const query = getDatastore().createQuery('Settings')
-        const [settings] = await getDatastore().runQuery(query)
+        const datastore = await getDatastore()
+        const query = datastore.createQuery('Settings')
+        const [settings] = await datastore.runQuery(query)
         if (settings.length > 0) {
             savedSettings = settings.reduce((obj, item) => (obj[item.key] = item.value, obj), {})
         } else {
